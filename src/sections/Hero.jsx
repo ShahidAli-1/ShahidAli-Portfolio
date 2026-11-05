@@ -1,5 +1,5 @@
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -7,6 +7,46 @@ const Hero = () => {
   const cardRef = useRef(null);
   const ropeRef = useRef(null);
   const sceneRef = useRef(null);
+
+  // Typewriter animation
+  const fullText = "Shahid Ali. Full Stack Developer";
+  const [typedCount, setTypedCount] = useState(0);
+
+  useEffect(() => {
+    let timeout;
+    let index = 0;
+    let deleting = false;
+
+    const typeText = () => {
+      if (!deleting) {
+        index++;
+        setTypedCount(index);
+
+        if (index === fullText.length) {
+          deleting = true;
+          timeout = setTimeout(typeText, 1500);
+          return;
+        }
+
+        timeout = setTimeout(typeText, 85);
+      } else {
+        index--;
+        setTypedCount(index);
+
+        if (index === 0) {
+          deleting = false;
+          timeout = setTimeout(typeText, 500);
+          return;
+        }
+
+        timeout = setTimeout(typeText, 45);
+      }
+    };
+
+    timeout = setTimeout(typeText, 500);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   const dragRef = useRef({
     active: false,
@@ -211,6 +251,7 @@ const Hero = () => {
       <div className="hero-glow" />
 
       <div className="hero-container">
+
         {/* Hanging Profile Photo */}
         <div className="hero-visual hero-photo-visual">
           <div ref={sceneRef} className="hanging-photo-scene">
@@ -259,9 +300,17 @@ const Hero = () => {
           <h1 className="hero-heading">
             Hi, I'm
             <br />
-            <span className="gradient-text">Shahid Ali.</span>
+
+            <span className="gradient-text">
+              {fullText.slice(0, Math.min(typedCount, 11))}
+            </span>
+
             <br />
-            <span className="hero-role">Full Stack Developer</span>
+
+            <span className="hero-role">
+              {typedCount > 11 ? fullText.slice(12, typedCount) : ""}
+              <span className="typing-cursor">|</span>
+            </span>
           </h1>
 
           <p className="hero-description">
@@ -317,6 +366,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
