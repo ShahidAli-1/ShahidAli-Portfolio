@@ -58,11 +58,12 @@ const About = () => {
             </p>
 
             <p>
-              My primary focus is backend and web application development
-              using C#, ASP.NET Core, and SQL Server, along with modern
-              frontend technologies. I'm continuously improving my skills
-              through hands-on projects and professional experience.
-            </p>
+  My main stack is C#, ASP.NET Core, and SQL Server, with HTML, CSS,
+  JavaScript, and Bootstrap on the front end. I also work with AI and
+  computer vision, and I enjoy combining both sides: building solid web
+  applications and adding intelligent features that make them smarter and
+  more useful.
+</p>
 
             <div className="about-details">
               <div className="about-detail">
