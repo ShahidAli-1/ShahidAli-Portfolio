@@ -1,96 +1,171 @@
+
+import { useState, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-
 import TitleHeader from "../components/TitleHeader";
-import TechIconCardExperience from "../components/models/tech_logos/TechIconCardExperience";
-import { techStackIcons } from "../constants";
-// import { techStackImgs } from "../constants";
+
+const skillCategories = [
+  {
+    id: "all",
+    label: "All Skills",
+  },
+  {
+    id: "backend",
+    label: "Backend",
+  },
+  {
+    id: "frontend",
+    label: "Frontend",
+  },
+  {
+    id: "database",
+    label: "Database",
+  },
+  {
+    id: "ai",
+    label: "AI & Vision",
+  },
+  {
+    id: "tools",
+    label: "Tools",
+  },
+];
+
+const skills = [
+  { name: "C#", symbol: "C#", category: "backend", level: "Working Knowledge", color: "blue" },
+  { name: "ASP.NET Core MVC", symbol: ".NET", category: "backend", level: "Practical Experience", color: "purple" },
+  { name: "Entity Framework Core", symbol: "EF", category: "backend", level: "Working Knowledge", color: "blue" },
+  { name: "ASP.NET Core Web API", symbol: "API", category: "backend", level: "Learning", color: "purple" },
+
+  { name: "HTML5", symbol: "5", category: "frontend", level: "Working Knowledge", color: "orange" },
+  { name: "CSS3", symbol: "CSS", category: "frontend", level: "Working Knowledge", color: "blue" },
+  { name: "JavaScript", symbol: "JS", category: "frontend", level: "Working Knowledge", color: "yellow" },
+  { name: "Bootstrap", symbol: "B", category: "frontend", level: "Working Knowledge", color: "purple" },
+  { name: "React", symbol: "R", category: "frontend", level: "Basic", color: "cyan" },
+
+  { name: "SQL Server", symbol: "SQL", category: "database", level: "Working Knowledge", color: "red" },
+  { name: "MySQL", symbol: "MY", category: "database", level: "Working Knowledge", color: "blue" },
+  { name: "SQL Queries", symbol: "DB", category: "database", level: "Working Knowledge", color: "cyan" },
+
+  { name: "Python", symbol: "Py", category: "ai", level: "Basic", color: "yellow" },
+  { name: "Flask", symbol: "Fl", category: "ai", level: "Project Experience", color: "blue" },
+  { name: "OpenCV", symbol: "CV", category: "ai", level: "Used in Project", color: "green" },
+  { name: "YOLO", symbol: "YO", category: "ai", level: "Used in Project", color: "purple" },
+  { name: "DeepFace", symbol: "DF", category: "ai", level: "Used in Project", color: "cyan" },
+
+  { name: "Git", symbol: "Git", category: "tools", level: "Working Knowledge", color: "orange" },
+  { name: "GitHub", symbol: "GH", category: "tools", level: "Working Knowledge", color: "purple" },
+  { name: "Visual Studio", symbol: "VS", category: "tools", level: "Working Knowledge", color: "purple" },
+  { name: "VS Code", symbol: "</>", category: "tools", level: "Working Knowledge", color: "blue" },
+  { name: "Postman", symbol: "PM", category: "tools", level: "Practical Use", color: "orange" },
+  { name: "Swagger", symbol: "SW", category: "tools", level: "Practical Use", color: "green" },
+];
 
 const TechStack = () => {
-  // Animate the tech cards in the skills section
-  useGSAP(() => {
-    // This animation is triggered when the user scrolls to the #skills wrapper
-    // The animation starts when the top of the wrapper is at the center of the screen
-    // The animation is staggered, meaning each card will animate in sequence
-    // The animation ease is set to "power2.inOut", which is a slow-in fast-out ease
-    gsap.fromTo(
-      ".tech-card",
-      {
-        // Initial values
-        y: 50, // Move the cards down by 50px
-        opacity: 0, // Set the opacity to 0
-      },
-      {
-        // Final values
-        y: 0, // Move the cards back to the top
-        opacity: 1, // Set the opacity to 1
-        duration: 1, // Duration of the animation
-        ease: "power2.inOut", // Ease of the animation
-        stagger: 0.2, // Stagger the animation by 0.2 seconds
-        scrollTrigger: {
-          trigger: "#skills", // Trigger the animation when the user scrolls to the #skills wrapper
-          start: "top center", // Start the animation when the top of the wrapper is at the center of the screen
-        },
-      }
-    );
-  });
+  const [activeCategory, setActiveCategory] = useState("all");
+  const sectionRef = useRef(null);
+
+  const filteredSkills =
+    activeCategory === "all"
+      ? skills
+      : skills.filter((skill) => skill.category === activeCategory);
+
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        ".compact-skill",
+        { y: 25, opacity: 0, scale: 0.97 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.45,
+          stagger: 0.045,
+          ease: "power2.out",
+        }
+      );
+    },
+    {
+      scope: sectionRef,
+      dependencies: [activeCategory],
+      revertOnUpdate: true,
+    }
+  );
 
   return (
-    <div id="skills" className="flex-center section-padding">
-      <div className="w-full h-full md:px-10 px-5">
+    <section
+      id="skills"
+      ref={sectionRef}
+      className="modern-skills-section section-padding"
+    >
+      <div className="modern-skills-container">
         <TitleHeader
-          title="How I Can Contribute & My Key Skills"
-          sub="🤝 What I Bring to the Table"
+          title="My Technical Skills"
+          sub="⚡ WHAT I WORK WITH"
         />
-        <div className="tech-grid">
-          {/* Loop through the techStackIcons array and create a component for each item. 
-              The key is set to the name of the tech stack icon, and the classnames are set to 
-              card-border, tech-card, overflow-hidden, and group. The xl:rounded-full and rounded-lg 
-              classes are only applied on larger screens. */}
-          {techStackIcons.map((techStackIcon) => (
-            <div
-              key={techStackIcon.name}
-              className="card-border tech-card overflow-hidden group xl:rounded-full rounded-lg"
-            >
-              {/* The tech-card-animated-bg div is used to create a background animation when the 
-                  component is hovered. */}
-              <div className="tech-card-animated-bg" />
-              <div className="tech-card-content">
-                {/* The tech-icon-wrapper div contains the TechIconCardExperience component, 
-                    which renders the 3D model of the tech stack icon. */}
-                <div className="tech-icon-wrapper">
-                  <TechIconCardExperience model={techStackIcon} />
-                </div>
-                {/* The padding-x and w-full classes are used to add horizontal padding to the 
-                    text and make it take up the full width of the component. */}
-                <div className="padding-x w-full">
-                  {/* The p tag contains the name of the tech stack icon. */}
-                  <p>{techStackIcon.name}</p>
-                </div>
-              </div>
-            </div>
-          ))}
 
-          {/* This is for the img part */}
-          {/* {techStackImgs.map((techStackIcon, index) => (
-            <div
-              key={index}
-              className="card-border tech-card overflow-hidden group xl:rounded-full rounded-lg"
+        <div className="modern-skills-heading">
+          <div>
+            <span className="modern-skills-eyebrow">
+              MY DEVELOPER TOOLKIT
+            </span>
+            <h3>
+              Technologies behind
+              <span> my work.</span>
+            </h3>
+            <p>
+              From .NET application development to databases, frontend
+              technologies, and AI-powered projects.
+            </p>
+          </div>
+
+          <div className="modern-skills-total">
+            <strong>{skills.length}</strong>
+            <span>TECHNOLOGIES</span>
+          </div>
+        </div>
+
+        <div className="modern-skill-filters">
+          {skillCategories.map((category) => (
+            <button
+              key={category.id}
+              type="button"
+              className={
+                activeCategory === category.id
+                  ? "modern-filter active"
+                  : "modern-filter"
+              }
+              onClick={() => setActiveCategory(category.id)}
+              aria-pressed={activeCategory === category.id}
             >
-              <div className="tech-card-animated-bg" />
-              <div className="tech-card-content">
-                <div className="tech-icon-wrapper">
-                  <img src={techStackIcon.imgPath} alt="" />
-                </div>
-                <div className="padding-x w-full">
-                  <p>{techStackIcon.name}</p>
-                </div>
-              </div>
-            </div>
-          ))} */}
+              {category.label}
+              {category.id === "all" && (
+                <span>{skills.length}</span>
+              )}
+            </button>
+          ))}
+        </div>   
+
+<div className="modern-skills-grid">
+  {filteredSkills.map((skill) => (
+    <article className="compact-skill" key={skill.name}>
+      <div className={`compact-skill-icon ${skill.color}`}>
+        {skill.symbol}
+      </div>
+      <h4>{skill.name}</h4>
+    </article>
+  ))}
+</div>
+
+        <div className="modern-skills-bottom">
+          <span>
+            <i />
+            CONTINUOUSLY LEARNING
+          </span>
+          <span>SHAHID ALI · SOFTWARE DEVELOPER</span>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

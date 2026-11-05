@@ -1,14 +1,16 @@
 const TitleHeader = ({ title, sub }) => {
+  const words = title.split(" ");
+  const highlightedWord = words.pop();
+  const remainingTitle = words.join(" ");
+
   return (
-    <div className="flex flex-col items-center gap-5">
-      <div className="hero-badge">
-        <p>{sub}</p>
-      </div>
-      <div>
-        <h1 className="font-semibold md:text-5xl text-3xl text-center">
-          {title}
-        </h1>
-      </div>
+    <div className="section-title-header">
+      <span className="section-title-eyebrow">{sub}</span>
+
+      <h2>
+        {remainingTitle}{" "}
+        <span className="gradient-text">{highlightedWord}</span>
+      </h2>
     </div>
   );
 };

@@ -1,3 +1,4 @@
+
 const navLinks = [
   {
     name: "Work",
@@ -36,39 +37,17 @@ const counterItems = [
 ];
 
 const logoIconsList = [
-  {
-    imgPath: "/images/logos/company-logo-1.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-2.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-3.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-4.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-5.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-6.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-7.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-8.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-9.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-10.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-11.png",
-  },
+  { imgPath: "/images/logos/company-logo-1.png" },
+  { imgPath: "/images/logos/company-logo-2.png" },
+  { imgPath: "/images/logos/company-logo-3.png" },
+  { imgPath: "/images/logos/company-logo-4.png" },
+  { imgPath: "/images/logos/company-logo-5.png" },
+  { imgPath: "/images/logos/company-logo-6.png" },
+  { imgPath: "/images/logos/company-logo-7.png" },
+  { imgPath: "/images/logos/company-logo-8.png" },
+  { imgPath: "/images/logos/company-logo-9.png" },
+  { imgPath: "/images/logos/company-logo-10.png" },
+  { imgPath: "/images/logos/company-logo-11.png" },
 ];
 
 const abilities = [
@@ -147,56 +126,48 @@ const techStackIcons = [
 
 const expCards = [
   {
-    review: "Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
-    imgPath: "/images/exp1.png",
-    logoPath: "/images/logo1.png",
-    title: "Frontend Developer",
-    date: "January 2023 - Present",
-    responsibilities: [
-      "Developed and maintained user-facing features for the Hostinger website.",
-      "Collaborated closely with UI/UX designers to ensure seamless user experiences.",
-      "Optimized web applications for maximum speed and scalability.",
-    ],
-  },
-  {
-    review: "Adrian’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
+    review:
+      "Currently gaining professional software development experience at the University of Southern Punjab, working on web application development using .NET technologies.",
     imgPath: "/images/exp2.png",
-    logoPath: "/images/logo2.png",
-    title: "Full Stack Developer",
-    date: "June 2020 - December 2023",
+    logoPath: "/images/usp-logo.jfif",
+    title: "Full Stack Developer Intern",
+    company: "University of Southern Punjab",
+    type: "On-site Internship",
+    date: "September 2026 - Present",
     responsibilities: [
-      "Led the development of Docker's web applications, focusing on scalability.",
-      "Worked with backend engineers to integrate APIs seamlessly with the frontend.",
-      "Contributed to open-source projects that were used with the Docker ecosystem.",
+      "Developing web applications using C# and ASP.NET Core MVC.",
+      "Working with Microsoft SQL Server for database design and data management.",
+      "Building application features and implementing backend functionality.",
+      "Working with frontend technologies including HTML, CSS, JavaScript, and Bootstrap.",
     ],
   },
-  {
-    review: "Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
-    imgPath: "/images/exp3.png",
-    logoPath: "/images/logo3.png",
-    title: "React Native Developer",
-    date: "March 2019 - May 2020",
+   {
+    review:
+      "Completed a virtual internship focused on full-stack development, gaining practical experience through web development tasks and hands-on programming.",
+    imgPath: "/images/exp1.png",
+    logoPath: "/images/codealpha.png",
+    title: "Full Stack Developer Intern",
+    company: "CodeAlpha",
+    type: "Virtual Internship",
+    date: "August 1, 2026 - August 31, 2026",
     responsibilities: [
-      "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
-      "Improved app performance and user experience through code optimization and testing.",
-      "Coordinated with the product team to implement features based on feedback.",
+      "Participated in a virtual internship focused on full-stack web development.",
+      "Worked on practical web development tasks and programming concepts.",
+      "Strengthened frontend and backend development skills through hands-on practice.",
     ],
   },
 ];
 
 const expLogos = [
-  {
-    name: "logo1",
-    imgPath: "/images/logo1.png",
+   {
+    name: "University of Southern Punjab",
+    imgPath: "/images/usp-logo.jfif",
   },
   {
-    name: "logo2",
-    imgPath: "/images/logo2.png",
+    name: "CodeAlpha",
+    imgPath: "/images/codealpha.png",
   },
-  {
-    name: "logo3",
-    imgPath: "/images/logo3.png",
-  },
+ 
 ];
 
 const testimonials = [
