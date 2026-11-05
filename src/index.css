@@ -2602,3 +2602,688 @@ section {
   color: white;
   box-shadow: 0 0 18px rgba(59, 130, 246, 0.2);
 }
+
+/* =========================================
+   MOBILE RESPONSIVE FIX
+   Desktop layout remains unchanged
+========================================= */
+
+@media (max-width: 650px) {
+
+  /* GLOBAL */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  section {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  img,
+  canvas {
+    max-width: 100%;
+  }
+
+  /* NAVBAR */
+  .portfolio-nav {
+    padding: 14px 5%;
+  }
+
+  .portfolio-nav-inner {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .portfolio-logo {
+    font-size: 18px;
+  }
+
+  .mobile-menu-btn {
+    font-size: 24px;
+  }
+
+  .portfolio-links {
+    left: 4%;
+    width: 92%;
+    max-width: 92%;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* HERO */
+  .portfolio-hero {
+    min-height: auto;
+    padding: 105px 5% 45px;
+  }
+
+  .hero-container {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .hero-kicker {
+    font-size: 9px;
+    padding: 8px 12px;
+    margin-bottom: 20px;
+  }
+
+  .hero-heading {
+    font-size: clamp(36px, 10vw, 52px);
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-role {
+    font-size: clamp(21px, 6vw, 29px);
+  }
+
+  .hero-description {
+    width: 100%;
+    max-width: 480px;
+    margin: 18px auto 24px;
+    font-size: 13px;
+    line-height: 1.8;
+    text-align: center;
+  }
+
+  .hero-actions,
+  .hero-socials {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-actions {
+    gap: 10px;
+  }
+
+  .hero-primary-btn,
+  .hero-secondary-btn {
+    padding: 12px 15px;
+    font-size: 12px;
+  }
+
+  .hero-focus {
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  .hero-focus > div {
+    justify-content: center;
+  }
+
+  .hero-focus > div span {
+    font-size: 10px;
+    padding: 7px 9px;
+  }
+
+  .hero-visual {
+    width: 100%;
+    max-width: 420px;
+    height: 360px;
+    min-width: 0;
+    margin: 0 auto;
+  }
+
+  .hero-3d-stage {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .hanging-photo-scene {
+    width: 100%;
+    min-height: 390px;
+    padding-top: 45px;
+  }
+
+  .hero-profile-frame {
+    max-width: min(260px, 80vw);
+  }
+
+  /* ABOUT */
+  .about-section {
+    width: 100%;
+    padding: 55px 5%;
+  }
+
+  .about-content {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 25px;
+  }
+
+  .about-info {
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+  }
+
+  .about-visual.about-3d-visual {
+    width: 100%;
+    min-width: 0;
+    min-height: 320px;
+    max-height: 360px;
+    overflow: hidden;
+  }
+
+  .about-3d-stage {
+    width: 100%;
+    height: 320px;
+    min-height: 0;
+  }
+
+  /* PROJECTS */
+  .app-showcase {
+    width: 100%;
+    padding: 50px 5%;
+  }
+
+  .projects-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .projects-heading {
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  .projects-heading h2 {
+    font-size: clamp(27px, 8vw, 36px);
+  }
+
+  .projects-heading p {
+    font-size: 12px;
+  }
+
+  .projects-grid {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .project-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .project-image {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .project-details {
+    padding: 16px;
+  }
+
+  .project-details h3 {
+    font-size: 16px;
+  }
+
+  .project-details p {
+    font-size: 12px;
+  }
+
+  /* EXPERIENCE */
+  #experience {
+    width: 100%;
+    padding: 45px 5% 30px !important;
+  }
+
+  #experience > div {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #experience .mt-32 {
+    margin-top: 45px;
+  }
+
+  .exp-card-wrapper {
+    width: 100%;
+    flex-direction: column-reverse;
+    gap: 22px;
+  }
+
+  .exp-card-wrapper > div {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .timeline-wrapper {
+    left: 15px;
+  }
+
+  .timeline-logo {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+  }
+
+  .expText {
+    width: 100%;
+    min-width: 0;
+    gap: 12px;
+    padding-left: 0;
+  }
+
+  .expText h1 {
+    font-size: 21px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .expText p,
+  .expText li {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .expText ul {
+    padding-left: 16px;
+    gap: 12px;
+  }
+
+  .timeline-card {
+    width: 100%;
+    padding: 20px;
+  }
+
+  /* SKILLS */
+  #skills,
+  .modern-skills-section {
+    width: 100%;
+    padding: 35px 5% 25px !important;
+  }
+
+  .modern-skills-container {
+    width: 100%;
+  }
+
+  .modern-skills-heading {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+  }
+
+  .modern-skills-heading h3 {
+    font-size: 25px;
+  }
+
+  .modern-skills-heading p {
+    font-size: 12px;
+  }
+
+  .modern-skills-total {
+    border-left: 0;
+    border-top: 2px solid #3b82f6;
+    padding: 12px 20px 0;
+  }
+
+  .modern-skill-filters {
+    justify-content: center;
+  }
+
+  .modern-skills-grid {
+    width: 100%;
+    justify-content: center;
+    gap: 9px;
+  }
+
+  .compact-skill {
+    width: calc(33.333% - 7px);
+    min-height: 78px;
+  }
+
+  /* CONTACT */
+  #contact {
+    width: 100%;
+    padding: 35px 5%;
+  }
+
+  #contact form {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #contact input,
+  #contact textarea {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    width: 100%;
+    padding: 25px 5%;
+  }
+
+  .footer .footer-container {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    text-align: center;
+  }
+}
+
+/* EXTRA SMALL PHONES */
+@media (max-width: 380px) {
+
+  .hero-heading {
+    font-size: 36px;
+  }
+
+  .hero-visual {
+    height: 310px;
+  }
+
+  .hanging-photo-scene {
+    min-height: 330px;
+  }
+
+  .compact-skill {
+    width: calc(33.333% - 7px);
+    min-height: 70px;
+  }
+
+  .compact-skill h4 {
+    font-size: 8px;
+  }
+
+  .expText h1 {
+    font-size: 19px;
+  }
+
+  .timeline-card {
+    padding: 15px;
+  }
+}
+
+/* =========================================
+   MOBILE PROFILE PHOTO FIX
+========================================= */
+
+@media (max-width: 650px) {
+
+  /* Bring profile photo closer to hero content */
+  .hero-visual {
+    width: 100%;
+    height: 300px;
+    max-width: 340px;
+    margin: 5px auto 0;
+    overflow: visible;
+  }
+
+  .hero-3d-stage {
+    height: 300px;
+    min-height: 300px;
+  }
+
+  .hanging-photo-scene {
+    width: 100%;
+    min-height: 300px;
+    height: 300px;
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  /* Keep the photo fully visible */
+  .hero-profile-frame {
+    position: relative;
+    width: 190px;
+    max-width: 65vw;
+    margin: 0 auto;
+    z-index: 2;
+  }
+
+  .hero-profile-frame img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Keep rope and photo within mobile scene */
+  .hanging-rope {
+    max-height: 75px;
+  }
+
+  /* Avoid clipping the photo */
+  .hero-visual,
+  .hero-3d-stage {
+    overflow: visible;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-visual,
+  .hero-3d-stage,
+  .hanging-photo-scene {
+    height: 270px;
+    min-height: 270px;
+  }
+
+  .hero-profile-frame {
+    width: 165px;
+  }
+}
+
+.hero-profile-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  position: relative;
+  z-index: 5;
+  color: #a9c2ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+@media (max-width: 650px) {
+  .hero-profile-caption {
+    margin-top: 8px;
+    font-size: 10px;
+  }
+}
+/* =========================================
+   HERO MOBILE POSITIONING FIX
+========================================= */
+
+.hero-container {
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 25px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+}
+
+.hero-photo-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+}
+
+/* Tablet and mobile */
+
+@media (max-width: 900px) {
+  .portfolio-hero {
+    min-height: 100svh;
+    height: auto;
+    padding: 100px 5% 40px;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* Show photo before introduction */
+  .hero-photo-visual {
+    order: -1;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+  }
+
+  .hanging-photo-scene {
+    width: 100%;
+    min-height: 390px;
+    padding-top: 45px;
+    margin: 0 auto;
+  }
+
+  .hanging-photo-card {
+    width: min(75%, 280px);
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 620px;
+    text-align: center;
+  }
+
+  .hero-kicker,
+  .hero-actions,
+  .hero-socials {
+    justify-content: center;
+  }
+
+  .hero-focus {
+    text-align: center;
+  }
+}
+
+/* Small mobile screens */
+
+@media (max-width: 550px) {
+  .portfolio-hero {
+    padding: 85px 20px 35px;
+  }
+
+  .hero-container {
+    gap: 5px;
+  }
+
+  .hanging-photo-scene {
+    min-height: 330px;
+    padding-top: 40px;
+  }
+
+  .hanging-photo-card {
+    width: min(72%, 240px);
+  }
+
+  .hero-heading {
+    font-size: clamp(2.3rem, 10vw, 3.2rem);
+  }
+
+  .hero-description {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .hero-focus {
+    margin-top: 25px;
+  }
+}
+/* Desktop: photo on the right */
+@media (min-width: 901px) {
+  .hero-photo-visual {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .hero-content {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+/* Mobile: photo above the introduction */
+@media (max-width: 900px) {
+  .hero-photo-visual {
+    order: -1;
+  }
+
+  .hero-content {
+    order: 1;
+  }
+}
+/* Fix profile photo caption clipping */
+.hanging-photo-card {
+  overflow: visible;
+  height: auto;
+  min-height: 0;
+}
+
+.hero-profile-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  z-index: 5;
+  box-sizing: border-box;
+}
+
+.hero-profile-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+@media (max-width: 550px) {
+  .hero-profile-caption {
+    min-height: 48px;
+    font-size: 11px;
+    padding: 8px;
+  }
+}

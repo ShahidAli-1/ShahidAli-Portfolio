@@ -118,10 +118,11 @@ const Hero = () => {
         const currentY = gsap.getProperty(card, "y");
         updateRope(currentX, currentY);
       },
+      onComplete: () => {
+        dragRef.current.x = 0;
+        dragRef.current.y = 0;
+      },
     });
-
-    dragRef.current.x = 0;
-    dragRef.current.y = 0;
   };
 
   useGSAP(() => {
@@ -148,31 +149,51 @@ const Hero = () => {
       opacity: 0,
       duration: 0.7,
     })
-      .from(".hero-heading", {
-        y: 45,
-        opacity: 0,
-        duration: 0.9,
-      }, "-=0.35")
-      .from(".hero-description", {
-        y: 25,
-        opacity: 0,
-        duration: 0.7,
-      }, "-=0.45")
-      .from(".hero-actions", {
-        y: 20,
-        opacity: 0,
-        duration: 0.6,
-      }, "-=0.35")
-      .from(".hero-socials", {
-        y: 15,
-        opacity: 0,
-        duration: 0.6,
-      }, "-=0.3")
-      .from(".hero-profile-frame", {
-        opacity: 0,
-        scale: 0.9,
-        duration: 1,
-      }, "-=0.5");
+      .from(
+        ".hero-heading",
+        {
+          y: 45,
+          opacity: 0,
+          duration: 0.9,
+        },
+        "-=0.35"
+      )
+      .from(
+        ".hero-description",
+        {
+          y: 25,
+          opacity: 0,
+          duration: 0.7,
+        },
+        "-=0.45"
+      )
+      .from(
+        ".hero-actions",
+        {
+          y: 20,
+          opacity: 0,
+          duration: 0.6,
+        },
+        "-=0.35"
+      )
+      .from(
+        ".hero-socials",
+        {
+          y: 15,
+          opacity: 0,
+          duration: 0.6,
+        },
+        "-=0.3"
+      )
+      .from(
+        ".hero-profile-frame",
+        {
+          opacity: 0,
+          scale: 0.9,
+          duration: 1,
+        },
+        "-=0.5"
+      );
 
     gsap.to(".hero-glow", {
       opacity: 0.8,
@@ -182,107 +203,119 @@ const Hero = () => {
       yoyo: true,
       ease: "sine.inOut",
     });
-  });
+  }, []);
 
   return (
     <section id="home" className="portfolio-hero">
       <div className="hero-grid-bg" />
       <div className="hero-glow" />
 
-      <div className="hero-content">
-        <div className="hero-kicker">
-          <span className="hero-status-dot" />
-          Full Stack Developer · MULTAN, PAKISTAN
-        </div>
+      <div className="hero-container">
+        {/* Hanging Profile Photo */}
+        <div className="hero-visual hero-photo-visual">
+          <div ref={sceneRef} className="hanging-photo-scene">
+            <div className="rope-anchor">
+              <div className="rope-anchor-ring" />
+            </div>
 
-        <h1 className="hero-heading">
-          Hi, I'm
-          <br />
-          <span className="gradient-text">Shahid Ali.</span>
-          <br />
-          <span className="hero-role">Full Stack Developer</span>
-        </h1>
+            <div ref={ropeRef} className="hanging-rope">
+              <div className="rope-string" />
+              <div className="rope-connector" />
+            </div>
 
-        <p className="hero-description">
-          I build modern, responsive web applications with a focus on
-          clean architecture, practical problem-solving, and great user
-          experiences. My core development stack includes C#, ASP.NET
-          Core, SQL Server, and modern frontend technologies.
-        </p>
+            <div
+              ref={cardRef}
+              className="hero-profile-frame hanging-photo-card"
+              onPointerDown={handlePointerDown}
+              onPointerMove={handlePointerMove}
+              onPointerUp={handlePointerUp}
+              onPointerCancel={handlePointerUp}
+              onLostPointerCapture={handlePointerUp}
+            >
+              <div className="hero-profile-glow" />
 
-        <div className="hero-actions">
-          <a href="#projects" className="hero-primary-btn">
-            Explore My Work <span>↗</span>
-          </a>
+              <img
+                src="/images/shahid-profile.jpeg"
+                alt="Shahid Ali - Full Stack Developer"
+                className="hero-profile-photo"
+                draggable="false"
+              />
 
-          <a href="#contact" className="hero-secondary-btn">
-            Let's Talk <span>→</span>
-          </a>
-        </div>
-
-        <div className="hero-socials">
-          <a href="https://github.com/ShahidAli-1" target="_blank" rel="noopener noreferrer">
-            GitHub ↗
-          </a>
-          <span className="hero-social-divider">/</span>
-          <a href="https://www.linkedin.com/in/shahidali64/" target="_blank" rel="noopener noreferrer">
-            LinkedIn ↗
-          </a>
-        </div>
-
-        <div className="hero-focus">
-          <span>CORE TECHNOLOGIES</span>
-          <div>
-            <span>C#</span>
-            <span>ASP.NET CORE</span>
-            <span>SQL SERVER</span>
-            <span>JAVASCRIPT</span>
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>BOOTSTRAP</span>
-            <span>PYTHON</span>
-            <span>GIT & GITHUB</span>
-
-          </div>
-        </div>
-      </div>
-
-      <div className="hero-visual hero-photo-visual">
-        <div ref={sceneRef} className="hanging-photo-scene">
-
-          <div className="rope-anchor">
-            <div className="rope-anchor-ring" />
-          </div>
-
-          <div ref={ropeRef} className="hanging-rope">
-            <div className="rope-string" />
-            <div className="rope-connector" />
-          </div>
-
-          <div
-            ref={cardRef}
-            className="hero-profile-frame hanging-photo-card"
-            onPointerDown={handlePointerDown}
-            onPointerMove={handlePointerMove}
-            onPointerUp={handlePointerUp}
-            onPointerCancel={handlePointerUp}
-            onLostPointerCapture={handlePointerUp}
-          >
-            <div className="hero-profile-glow" />
-
-            <img
-              src="/images/shahid-profile.jpeg"
-              alt="Shahid Ali - Software Engineer"
-              className="hero-profile-photo"
-              draggable="false"
-            />
-
-            <div className="hero-profile-caption">
-              <span className="hero-active-dot" />
-              SOFTWARE ENGINEER
+              <div className="hero-profile-caption">
+                <span className="hero-active-dot" />
+                FULL STACK DEVELOPER
+              </div>
             </div>
           </div>
+        </div>
 
+        {/* Hero Introduction */}
+        <div className="hero-content">
+          <div className="hero-kicker">
+            <span className="hero-status-dot" />
+            Full Stack Developer · MULTAN, PAKISTAN
+          </div>
+
+          <h1 className="hero-heading">
+            Hi, I'm
+            <br />
+            <span className="gradient-text">Shahid Ali.</span>
+            <br />
+            <span className="hero-role">Full Stack Developer</span>
+          </h1>
+
+          <p className="hero-description">
+            I build modern, responsive web applications with a focus on
+            clean architecture, practical problem-solving, and great user
+            experiences. My core development stack includes C#, ASP.NET
+            Core, SQL Server, and modern frontend technologies.
+          </p>
+
+          <div className="hero-actions">
+            <a href="#projects" className="hero-primary-btn">
+              Explore My Work <span>↗</span>
+            </a>
+
+            <a href="#contact" className="hero-secondary-btn">
+              Let's Talk <span>→</span>
+            </a>
+          </div>
+
+          <div className="hero-socials">
+            <a
+              href="https://github.com/ShahidAli-1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
+
+            <span className="hero-social-divider">/</span>
+
+            <a
+              href="https://www.linkedin.com/in/shahidali64/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn ↗
+            </a>
+          </div>
+
+          <div className="hero-focus">
+            <span>CORE TECHNOLOGIES</span>
+
+            <div>
+              <span>C#</span>
+              <span>ASP.NET CORE</span>
+              <span>SQL SERVER</span>
+              <span>JAVASCRIPT</span>
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>BOOTSTRAP</span>
+              <span>PYTHON</span>
+              <span>GIT & GITHUB</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
